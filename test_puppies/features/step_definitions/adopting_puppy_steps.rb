@@ -4,8 +4,9 @@ Given(/^I am on the puppy adoption site\.$/) do
 end
 
 When(/^I click the first View Details button$/) do
-    @home.select_puppy_number 1
-    @details = DetailsPage.new(@browser)
+    on(HomePage).select_puppy_number 1
+    #@home.select_puppy_number 1
+    #@details = DetailsPage.new(@browser)
 end
 
 When(/^I click the second View Details button$/) do
