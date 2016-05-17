@@ -6,10 +6,6 @@ When(/^I click the first View Details button$/) do
         @browser.button(:value => 'View Details', :index => 1 - 1).click
 end
 
-When(/^I click the Adopt Another Puppy button$/) do
-    @cart.continue_shopping
-end
-
 When(/^I click the second View Details button$/) do
         @browser.button(:value => 'View Details', :index => 2 - 1).click
 end
@@ -17,6 +13,10 @@ end
 When(/^I click the Adopt Me button$/) do
     @browser.button(:value => 'Adopt Me!').click
     @cart = ShoppingCartPage.new(@browser)
+end
+
+When(/^I click the Adopt Another Puppy button$/) do
+    @cart.continue_shopping
 end
 
 When(/^I click the Complete the Adoption button$/) do

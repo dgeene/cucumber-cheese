@@ -7,7 +7,7 @@ class ShoppingCartPage
     LINES_PER_PUPPY = 6
 
     button(:proceed_to_checkout, :value => 'Complete the Adoption')
-    button(:continue_chopping, :value => 'Adopt Another Puppy')
+    button(:continue_shopping, :value => 'Adopt Another Puppy')
     table(:cart, :index => 0)
     cell(:cart_total, :class => 'total_cell')
 
