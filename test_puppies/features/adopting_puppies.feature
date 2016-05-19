@@ -36,7 +36,8 @@ Feature: Adopting puppies
         Then I should see "Thank you for adopting a puppy!"
 
     Scenario: Validate cart with one puppy
-        When I click the first View Details button
+        #When I click the first View Details button
+        When I click the View Details button for "Brook"
         And I click the Adopt Me button
         Then I should see "Brook" as the name for line item 1
         And I should see "$34.95" as the subtotal for line item 1
