@@ -1,6 +1,12 @@
 Given(/^I am on the puppy adoption site\.$/) do
-    @browser.goto 'http://puppies.herokuapp.com'
-    @home = HomePage.new(@browser)
+    # start using factory methods so we don't have to repeatedly use variables
+    # instead use
+    # on(HomePAge)
+    # visit(HomePage)
+    # @current_page
+    #@browser.goto 'http://puppies.herokuapp.com'
+    #@home = HomePage.new(@browser)
+    visit(HomePage)
 end
 
 When(/^I click the first View Details button$/) do
@@ -15,7 +21,7 @@ When(/^I click the second View Details button$/) do
 end
 
 When(/^I click the Adopt Me button$/) do
-    @details.add_to_cart
+    @details.add_to_cart #fix me
     @cart = ShoppingCartPage.new(@browser)
 end
 
