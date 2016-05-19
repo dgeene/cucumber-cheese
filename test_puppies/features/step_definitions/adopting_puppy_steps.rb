@@ -61,8 +61,8 @@ end
 
 
 ##### table stuff
-Then(/^I should see "([^"]*)" as the name for line item (\d+)$/) do |name, line_item|
-    expect(@cart.name_for_line_item(line_item.to_i)).to include name
+Then(/^I should see "([^"]*)" as the name for (line item \d+)$/) do |name, line_item|
+    expect(@cart.name_for_line_item(line_item)).to include name
 end
 
 Then(/^I should see "([^"]*)" as the subtotal for line item (\d+)$/) do |subtotal, line_item|
