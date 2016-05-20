@@ -4,7 +4,7 @@ class HomePage
     page_url 'http://puppies.herokuapp.com'
 
     divs(:name, :class => 'name')
-    buttons(:view_detail, => 'View Details')
+    buttons(:view_detail, :value => 'View Details')
 
     def select_puppy name
         index = index_for(name)
