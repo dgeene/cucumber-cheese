@@ -17,10 +17,13 @@ class CheckoutPage
     button(:place_order, :value => 'Place Order')
 
     def checkout(data = {})
+        #self.name = data['name']
+        #self.address = data['address']
+        #self.email = data['email']
+        #self.pay_type = data['pay_type']
+        #place_order
         #data = DEFAULT_DATA.merge(data)
         #populate_page_with  DEFAULT_DATA.merge(data)
         populate_page_with  data_for(:checkout_page, data)
-        place_order
-    end
 
 end

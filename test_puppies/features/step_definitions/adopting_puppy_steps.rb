@@ -46,6 +46,12 @@ When(/^I click the Place Order button$/) do
     on(CheckoutPage).place_order
 end
 
+
+When(/^I complete the adoption with:$/) do |table|
+    # table is a Cucumber::Core::Ast::DataTable
+    on(CheckoutPage).checkout(table.hashes.first)
+end
+
 Then(/^I should see "([^"]*)"$/) do |expected|
     expect(@current_page.text).to include expected
 end
