@@ -50,7 +50,20 @@ Then(/^I should see "([^"]*)"$/) do |expected|
     expect(@current_page.text).to include expected
 end
 
+# an example of using default data
+When /^I complete the adoption of a puppy$/ do
+    on(HomePage).select_puppy
+    on.(DetailsPage).add_to_cart
+    on(ShoppingCartPage).proceed_to_checkout
+    on(CheckoutPage).checkout
+end
 
+When /^I complete the adoption using a Credit card$/ do
+    on(CheckoutPage).checkout('pay_type' => 'Credit card')
+end
+When /^I complete the adoption$/
+    do on(CheckoutPage).checkout
+end
 
 ##### table stuff
 Then(/^I should see "([^"]*)" as the name for (line item \d+)$/) do |name, line_item|
