@@ -61,7 +61,9 @@ end
 # matches text within the <div id="error_explanation"> on checkout page
 Then(/^I should see the error message "([^"]*)"$/) do |msg|
     #expect(on(CheckoutPage).error_messages).to include msg #
-    expect(@current_page.error_messages).to include msg
+    #expect(@current_page.error_messages).to include msg
+    # an example of using a custom matcher
+    expect(@current_page).to have_error_message msg # is expect part of RSpec?
 end
 
 # an example of using default data
