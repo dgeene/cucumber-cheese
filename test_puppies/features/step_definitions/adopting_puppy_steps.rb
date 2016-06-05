@@ -60,7 +60,7 @@ end
 
 # matches text within the <div id="error_explanation"> on checkout page
 Then(/^I should see the error message "([^"]*)"$/) do |msg|
-    expect(@checkout_page.error_messages).to include msg
+    expect(on(CheckoutPage).error_messages).to include msg
 end
 
 # an example of using default data
