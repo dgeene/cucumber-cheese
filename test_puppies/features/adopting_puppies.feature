@@ -58,6 +58,12 @@ Feature: Adopting puppies
         | Cheezy | 123 Main Street | cheezy@example.com | Check    |
         Then I should see "Thank you for adopting a puppy!"
 
+
+    # on our site, the name field is a required field
+    Scenario: Name is a required field
+        When I checkout leaving the name field blank
+        Then I should see the error message "Name can't be blank"
+
     # do not overuse tables. We can also use default data to populate fields.
     # That way we don't have to repeatedly specify entry data here
     Scenario: Adopting puppy using partial default data

@@ -52,8 +52,15 @@ When(/^I complete the adoption with:$/) do |table|
     on(CheckoutPage).checkout(table.hashes.first)
 end
 
+# this will search for text anywhere on the page
 Then(/^I should see "([^"]*)"$/) do |expected|
     expect(@current_page.text).to include expected
+end
+
+
+# matches text within the <div id="error_explanation"> on checkout page
+Then(/^I should see the error message "([^"]*)"$/) do |msg|
+    expect(@checkout_page.error_messages).to include msg
 end
 
 # an example of using default data
@@ -62,6 +69,14 @@ When /^I complete the adoption of a puppy$/ do
     on(DetailsPage).add_to_cart
     on(ShoppingCartPage).proceed_to_checkout
     on(CheckoutPage).checkout
+end
+
+# the name field is a reuqired field
+When /^I checkout leaving the name field blank/ do
+    on(HomePage).select_puppy
+    on(DetailsPage).add_to_cart
+    on(ShoppingCartPage).proceed_to_checkout
+    on(CheckoutPage).checkout('name' => '') # override default
 end
 
 When /^I complete the adoption using a Credit card$/ do
