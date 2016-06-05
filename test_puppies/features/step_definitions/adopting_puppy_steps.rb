@@ -59,7 +59,7 @@ end
 # an example of using default data
 When /^I complete the adoption of a puppy$/ do
     on(HomePage).select_puppy
-    on.(DetailsPage).add_to_cart
+    on(DetailsPage).add_to_cart
     on(ShoppingCartPage).proceed_to_checkout
     on(CheckoutPage).checkout
 end
@@ -67,8 +67,8 @@ end
 When /^I complete the adoption using a Credit card$/ do
     on(CheckoutPage).checkout('pay_type' => 'Credit card')
 end
-When /^I complete the adoption$/
-    do on(CheckoutPage).checkout
+When /^I complete the adoption$/ do
+    on(CheckoutPage).checkout
 end
 
 ##### table stuff
