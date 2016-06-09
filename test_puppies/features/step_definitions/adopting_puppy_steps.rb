@@ -68,18 +68,20 @@ end
 
 # an example of using default data
 When /^I complete the adoption of a puppy$/ do
-    on(HomePage).select_puppy
-    on(DetailsPage).add_to_cart
-    on(ShoppingCartPage).proceed_to_checkout
-    on(CheckoutPage).checkout
+    navigate_all #page 109 replaces all these repetitave steps
+    #on(HomePage).select_puppy
+    #on(DetailsPage).add_to_cart
+    #on(ShoppingCartPage).proceed_to_checkout
+    #on(CheckoutPage).checkout
 end
 
 # the name field is a reuqired field
 When /^I checkout leaving the name field blank/ do
-    on(HomePage).select_puppy
-    on(DetailsPage).add_to_cart
-    on(ShoppingCartPage).proceed_to_checkout
-    on(CheckoutPage).checkout('name' => '') # override default
+    navigate_to(CheckoutPage).checkout('name' => '')
+    #on(HomePage).select_puppy
+    #on(DetailsPage).add_to_cart
+    #on(ShoppingCartPage).proceed_to_checkout
+    #on(CheckoutPage).checkout('name' => '') # override default
 end
 
 When /^I complete the adoption using a Credit card$/ do
